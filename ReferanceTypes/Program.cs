@@ -27,8 +27,20 @@ person1.FirstName = "derin";
 Console.WriteLine(person2.FirstName);
 
 Customer customer = new Customer();
-Employee employee = new Employee();
+customer.FirstName = "salih";
+customer.CardNo = "123456";
 
+Employee employee = new Employee();
+employee.FirstName = "murtaza";
+
+Person person3=customer;
+customer.FirstName = "ahmet";
+
+Console.WriteLine(person3.FirstName);
+Console.WriteLine(((Customer)person3).CardNo);
+
+PersonManager personManager = new PersonManager();
+personManager.Add(employee);
 
 Console.ReadLine();
 
@@ -46,4 +58,11 @@ class Customer:Person
 class Employee:Person
 {
     public int EmployeeNo { get; set; }
+}
+class PersonManager
+{
+    public void Add(Person person)
+    {
+        Console.WriteLine(person.FirstName);
+    }
 }
